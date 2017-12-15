@@ -12,6 +12,8 @@ class DepthFirstSearchSpec extends FlatSpec {
 
     val result = DepthFirstSearch.search(SearchState(List(rootNode), None), Continue)
 
+    print(result._2)
+
     result._2 shouldBe Solution(Vault.correctVaultCombination)
   }
 }
