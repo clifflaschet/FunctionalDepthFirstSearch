@@ -2,8 +2,9 @@ package com.functional.ai.search
 
 import com.functional.ai.search.Vault.VaultCombination
 
-import scalaz.State
-import scalaz.State._
+import scala.annotation.tailrec
+import scalaz.Scalaz._
+import scalaz._
 
 /**
   * Used for storing the state of the search.
@@ -29,7 +30,7 @@ object DepthFirstSearch {
     * @param result
     * @return
     */
-  def search(result: (SearchState, SearchResult)): (SearchState, SearchResult) ={
+  @tailrec def search(result: (SearchState, SearchResult)): (SearchState, SearchResult) ={
     if(result._2 != Continue)
       result
     else
